@@ -1,0 +1,32 @@
+---
+cloud_controller_uri: http://api.vcap.me
+
+service:
+  name: mssql
+  version: "10.50.2500"
+  description: 'MS SQL database service'
+  plans: ['free']
+  tags: ['mssql', 'SQL Server 2008 R2', 'relational']
+
+ip_route: 127.0.0.1
+
+#proxy:
+#   host: proxy
+#   port: 8080
+#   keepalive: true
+
+index: 0
+
+token: "0xdeadbeef"
+
+logging:
+  level: debug
+  file: C:/var/sys/log/mssql_gateway.log
+
+mbus: nats://127.0.0.1:4222
+
+pid: C:/var/vcap/sys/run/mssql_service.pid
+
+node_timeout: 2
+
+# allow_over_provisioning: false
