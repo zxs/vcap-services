@@ -1,0 +1,34 @@
+---
+local_db: sqlite3:C:/var/vcap/services/mssql/mssql_node.db
+
+base_dir: C:/var/vcap/services/mssql
+
+sqlcmd_bin: 'C:/Program Files/Microsoft SQL Server/100/Tools/Binn/sqlcmd.exe'
+
+ip_route: 127.0.0.1
+
+mbus: nats://127.0.0.1:4222
+
+index: 0
+
+logging:
+  level: debug
+  file: C:/var/vcap/sys/log/mssql_node.log
+
+pid: C:/var/vcap/sys/run/mssql_node.pid
+
+available_storage: 1024
+
+node_id: mssql_node_1
+
+max_db_size: 20
+max_long_query: 3
+max_long_tx: 30
+
+migration_nfs: C:/var/mnt/migration
+
+mssql:
+  host: 127.0.0.1
+  port: 1433
+  user: sa
+  pass: Password123
