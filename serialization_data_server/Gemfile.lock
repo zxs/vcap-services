@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/cloudfoundry/common.git
+  remote: https://github.com/cloudfoundry/common.git
   revision: b96ec1192d961925d91e17ca3831f8547489d918
   ref: b96ec1192
   specs:
@@ -7,7 +7,7 @@ GIT
       rake
 
 GIT
-  remote: git://github.com/cloudfoundry/vcap-common.git
+  remote: https://github.com/cloudfoundry/vcap-common.git
   revision: a7779114db666a1cf5eedf3fd1576c657ccafb6d
   ref: a7779114db
   specs:
