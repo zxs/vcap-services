@@ -1,0 +1,33 @@
+#!/usr/bin/env ruby
+# -*- mode: ruby -*-
+# Copyright (c) 2009-2011 VMware, Inc.
+
+ENV["BUNDLE_GEMFILE"] ||= File.expand_path("../../Gemfile", __FILE__)
+require 'bundler/setup'
+require 'vcap_services_base'
+
+$LOAD_PATH.unshift(File.expand_path("../../lib", __FILE__))
+require "webhdfs_service/webhdfs_node"
+
+class VCAP::Services::WebHDFS::NodeBin < VCAP::Services::Base::NodeBin
+
+  def node_class
+    VCAP::Services::WebHDFS::Node
+  end
+
+  def default_config_file
+    config_base_dir = ENV["CLOUD_FOUNDRY_CONFIG_PATH"] || File.join(File.dirname(__FILE__), '..', 'config')
+    File.join(config_base_dir, 'webhdfs_node.yml')
+  end
+
+  def additional_config(options, config)
+    options[:kadm5_user] = parse_property(config, "kadm5_user", String)
+    options[:kadm5_pass] = parse_property(config, "kadm5_pass", String)
+    options[:hdfs_keytab] = parse_property(config, "hdfs_keytab", String)
+    options[:webhdfs] = parse_property(config, "webhdfs", Hash)
+    options
+  end
+
+end
+
+VCAP::Services::WebHDFS::NodeBin.new.start

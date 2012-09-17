@@ -1,0 +1,24 @@
+---
+capacity: 200
+plan: free
+local_db: sqlite3:/var/vcap/services/webhdfs/webhdfs_node.db
+mbus: nats://nats:nats@127.0.0.1:4222
+index: 0
+base_dir: /var/vcap/services/webhdfs/
+ip_route: 127.0.0.1
+logging:
+  level: debug
+pid: /var/vcap/sys/run/webhdfs_node.pid
+node_id: webhdfs_node_1
+
+kadm5_user: kadmin/admin
+kadm5_pass: admin
+hdfs_keytab: /etc/hadoop/conf/hdfs.keytab  
+webhdfs:
+  host: cdh4b.0.efoxconn.com
+  port: 14000
+#  user: zen
+#  pass: abc123
+
+  
+  

@@ -1,0 +1,16 @@
+---
+# cloud_controller_uri: api.vcap.me
+service:
+  name: webhdfs
+  version: "2.0"
+  description: 'WebHDFS big-data store service'
+  plans: ['free']
+  tags: ['webhdfs', 'webhdfs-2.0', 'web big-data', 'webhdfsbased']
+ip_route: localhost
+index: 0
+token: changewebhdfstoken
+logging:
+  level: debug
+mbus: nats://nats:nats@127.0.0.1:4222
+pid: /var/vcap/sys/run/webhdfs_service.pid
+node_timeout: 2
